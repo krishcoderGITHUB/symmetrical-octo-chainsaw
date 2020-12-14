@@ -141,7 +141,7 @@ const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const l = urlParams.get('l')
-document.getElementById("video").setAttribute("href", 'https://www.youtube.com/embed/?enablejsapi=1&playlist=' + l +'&loop=1&rel=0&fs=0&controls=0');
+document.getElementById("video").setAttribute("src", 'https://www.youtube.com/embed/?enablejsapi=1&playlist=' + l +'&loop=1&rel=0&fs=0&controls=0');
 </script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./script.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
