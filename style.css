@@ -1,0 +1,97 @@
+/*.morevi{
+     z-index:1;
+     width:40%;
+      height:20vh; 
+      top:26%; 
+      position: absolute; 
+      background-color:blue;
+}
+.morevi2{
+     z-index:1;
+     width:40%;
+      height:20vh; 
+      top:26%; 
+      right:0;
+      position: absolute; 
+      background-color:blue;
+}
+.morevi3{
+     z-index:1;
+     width:40%;
+      height:8vh; 
+      top:56%;
+      right:30vw; 
+      position: absolute; 
+      background-color:blue;
+}*/
+.screenf{
+     z-index:1;
+     width:30%;
+      height:17%; 
+      right:0%; 
+      bottom:0%;
+      position: absolute; 
+      background-color:yellow;
+
+}
+.share{
+     z-index:1;
+     width:95vw; 
+     height:22%; 
+     right:0;position: absolute; 
+     background-color:red;
+}
+.containiframe{width:95vw; height:40vh; position: relative;}
+.full , iframe{width:95vw;height:40vh;}
+.buttons {
+  background-color: #484848; 
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons li {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px;
+
+}
+
+button , #mute-toggle {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 8px;
+  color: #FFFFFF;
+
+
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+b{color:white;
+font-size:130%;}
+input{width:50vw;}
+.full{
+z-index:1;
+ position: absolute; 
+}
+#speed1x , #speed{font-size:15px;}
+#mute-toggle{font-size:25px;
+padding:3px 8px 3px 8px;}
+@media screen and (min-width: 700px) {
+.full , iframe{width:95vw;height:100vh;}
+.containiframe{width:95vw; height:100vh; position: relative;}
+b{font-size:160%;}
+}
