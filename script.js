@@ -190,12 +190,12 @@ $('#volume-input').on('change', function () {
     player.setVolume($(this).val());
 });
 
-$('#speed').on('click', function () {
+/*$('#speed').on('click', function () {
     player.setPlaybackRate(2);
 });
 $('#speed1x').on('click', function () {
     player.setPlaybackRate(1);
-});
+});*/
 
 // To get the current playback rate for a video use this method:
 // player.getPlaybackRate()
