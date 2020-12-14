@@ -13,12 +13,12 @@ events: {
 function initialize(){
 
 
- /* // bind events
-  var playButton = document.getElementById("play-button");
+  // bind events
+  var playButton = document.getElementById("play");
   playButton.addEventListener("click", function() {
       player.playVideo();
   });
-
+/*
   var pauseButton = document.getElementById("pause-button");
   pauseButton.addEventListener("click", function() {
       player.pauseVideo();
@@ -154,12 +154,12 @@ $('#progress-bar').on('mouseup touchend', function (e) {
 });
 
 
-
+/*
 $('#play').on('click', function () {
     player.playVideo();
     $(".screenf").delay(6000).fadeOut(500); 
     $(".share").delay(6000).fadeOut(500); 
-});
+});*/
 
 
 $('#pause').on('click', function () {
