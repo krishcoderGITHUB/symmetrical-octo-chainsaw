@@ -1,0 +1,384 @@
+<html>
+	<head>
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style type="text/css">
+/*.morevi{
+     z-index:1;
+     width:40%;
+      height:20vh; 
+      top:26%; 
+      position: absolute; 
+      background-color:blue;
+}
+.morevi2{
+     z-index:1;
+     width:40%;
+      height:20vh; 
+      top:26%; 
+      right:0;
+      position: absolute; 
+      background-color:blue;
+}
+.morevi3{
+     z-index:1;
+     width:40%;
+      height:8vh; 
+      top:56%;
+      right:30vw; 
+      position: absolute; 
+      background-color:blue;
+}*/
+.screenf{
+     z-index:1;
+     width:30%;
+      height:17%; 
+      right:0%; 
+      bottom:0%;
+      position: absolute; 
+      /*background-color:yellow;*/
+
+}
+.share{
+     z-index:1;
+     width:95vw; 
+     height:22%; 
+     right:0;position: absolute; 
+  /*  background-color:red;*/
+}
+.containiframe{width:95vw; height:40vh; position: relative;}
+.full , iframe{width:95vw;height:40vh;}
+.buttons {
+  background-color: #484848; 
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons li {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px;
+
+}
+
+button , #mute-toggle {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 8px;
+  color: #FFFFFF;
+
+
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+b{color:white;
+font-size:130%;}
+input{width:50vw;}
+.full{
+z-index:1;
+ position: absolute; 
+}
+#speed1x , #speed{font-size:15px;}
+#mute-toggle{font-size:25px;
+padding:3px 8px 3px 8px;}
+@media screen and (min-width: 700px) {
+.full , iframe{width:95vw;height:90vh;}
+.containiframe{width:95vw; height:90vh; position: relative;}
+b{font-size:160%;}
+}
+</style>
+	</head>
+	<body>
+<div class="containiframe">
+<div class="share"></div>
+<div class="screenf"></div>
+<div class="morevi"></div>
+<div class="morevi2"></div>
+<div class="morevi3"></div>
+<div class="full"></div>
+<iframe id="video" src="https://www.youtube.com/embed/?enablejsapi=1&playlist=bPeszD-hqMk&loop=1&rel=0&fs=0" style="z-index:2;" frameborder="0" allowfullscreen>
+
+</iframe>
+<ul class="buttons">
+	<li>
+           <button id="play" > <i class="material-icons">play_arrow</i></button>
+	</li>
+	<li>
+            <button id="pause"><i class="material-icons">pause</i></button>
+	</li>
+    <li> 
+             <button id="stop"><i class="material-icons">stop</i></button>
+    </li>
+<!--    <li> 
+             <button id="fast_forward"><i class="material-icons">fast_forward</i><br>15s</button>
+    </li>
+    <li> 
+             <button id="fast_rewind"><i class="material-icons">fast_rewind</i><br>15s</button>
+    </li>-->
+    <li>     <i id="mute-toggle" class="material-icons">volume_up</i></button></li><br>
+	<li> <b>	<span id="current-time">0:00</span> / <span id="duration">0:00</span>  </b></li>
+	<li><input type="range" id="progress-bar" value="0"></li>
+<!--	<li>            <button id="speed">2x</button></li>
+		<li>            <button id="speed1x">1x</button></li>-->
+	</ul>
+
+</div>
+<!--<script type="text/javascript">
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const l = urlParams.get('l')
+document.getElementById("video").setAttribute("src", 'https://www.youtube.com/embed/?enablejsapi=1&playlist=' + l +'&loop=1&rel=0&fs=0&controls=0');
+</script>-->
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="./script.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+
+<script type="text/javascript">
+// global variable for the player
+var player,    time_update_interval = 0;
+
+// this function gets called when API is ready to use
+function onYouTubePlayerAPIReady() {
+  // create the global player from the specific iframe (#video)
+  player = new YT.Player('video', {
+events: {
+    onReady: 
+    initialize
+}
+  });
+}
+function initialize(){
+
+
+ /* // bind events
+  var playButton = document.getElementById("play-button");
+  playButton.addEventListener("click", function() {
+      player.playVideo();
+  });
+
+  var pauseButton = document.getElementById("pause-button");
+  pauseButton.addEventListener("click", function() {
+      player.pauseVideo();
+  });*/
+
+  var stopButton = document.getElementById("stop");
+  stopButton.addEventListener("click", function() {
+      player.stopVideo();
+  });
+
+/*var fwdbutton = document.getElementById("fast_forward");
+fwdbutton.addEventListener("click", function() {
+       var current = player.getCurrentTime();
+       var current4 = current + 15 ;
+player.seekTo(current4, true)
+});
+var rwdbutton = document.getElementById("fast_rewind");
+rwdbutton.addEventListener("click", function() {
+       var current = player.getCurrentTime();
+       var current4 = current - 15 ;
+player.seekTo(current4, true)
+});*/
+
+
+/*function initialize(){
+
+    // Update the controls on load
+    updateTimerDisplay();
+    updateProgressBar();
+
+    // Clear any old interval.
+    clearInterval(time_update_interval);
+
+    // Start interval to update elapsed time display and
+    // the elapsed part of the progress bar every second.
+    time_update_interval = setInterval(function () {
+        updateTimerDisplay();
+        updateProgressBar();
+    }, 1000);
+
+
+    $('#volume-input').val(Math.round(player.getVolume()));
+}
+
+
+// This function is called by initialize()
+function updateTimerDisplay(){
+    // Update current time text display.
+    $('#current-time').text(formatTime( player.getCurrentTime() ));
+    $('#duration').text(formatTime( player.getDuration() ));
+}
+
+
+// This function is called by initialize()
+function updateProgressBar(){
+    // Update the value of our progress bar accordingly.
+    $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
+}
+
+
+// Progress bar
+
+$('#progress-bar').on('mouseup touchend', function (e) {
+
+    // Calculate the new time for the video.
+    // new time in seconds = total duration in seconds * ( value of range input / 100 )
+    var newTime = player.getDuration() * (e.target.value / 100);
+
+    // Skip video to new time.
+    player.seekTo(newTime);
+
+});
+// Helper Functions
+
+function formatTime(time){
+    time = Math.round(time);
+
+    var minutes = Math.floor(time / 60),
+        seconds = time - minutes * 60;
+
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return minutes + ":" + seconds;
+}*/
+
+
+    // Update the controls on load
+    updateTimerDisplay();
+    updateProgressBar();
+
+    // Clear any old interval.
+    clearInterval(time_update_interval);
+
+    // Start interval to update elapsed time display and
+    // the elapsed part of the progress bar every second.
+    time_update_interval = setInterval(function () {
+        updateTimerDisplay();
+        updateProgressBar();
+    }, 1000);
+
+
+    $('#volume-input').val(Math.round(player.getVolume()));
+}
+
+
+// This function is called by initialize()
+function updateTimerDisplay(){
+    // Update current time text display.
+    $('#current-time').text(formatTime( player.getCurrentTime() ));
+    $('#duration').text(formatTime( player.getDuration() ));
+}
+
+
+// This function is called by initialize()
+function updateProgressBar(){
+    // Update the value of our progress bar accordingly.
+    $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
+}
+
+
+// Progress bar
+
+$('#progress-bar').on('mouseup touchend', function (e) {
+
+    // Calculate the new time for the video.
+    // new time in seconds = total duration in seconds * ( value of range input / 100 )
+    var newTime = player.getDuration() * (e.target.value / 100);
+
+    // Skip video to new time.
+    player.seekTo(newTime);
+
+});
+
+
+
+$('#play').on('click', function () {
+    player.playVideo();
+    $(".screenf").delay(6000).fadeOut(500); 
+    $(".share").delay(6000).fadeOut(500); 
+});
+
+
+$('#pause').on('click', function () {
+    player.pauseVideo();
+    $(".screenf").show();
+        $(".share").show();
+
+});
+
+
+// Sound volume
+
+
+$('#mute-toggle').on('click', function() {
+    var mute_toggle = $(this);
+
+    if(player.isMuted()){
+        player.unMute();
+        mute_toggle.text('volume_up');
+    }
+    else{
+        player.mute();
+        mute_toggle.text('volume_off');
+    }
+});
+
+$('#volume-input').on('change', function () {
+    player.setVolume($(this).val());
+});
+
+/*$('#speed').on('click', function () {
+    player.setPlaybackRate(2);
+});
+$('#speed1x').on('click', function () {
+    player.setPlaybackRate(1);
+});*/
+
+// To get the current playback rate for a video use this method:
+// player.getPlaybackRate()
+
+// To get all available playback rates for the current video use:
+// player.getAvailablePlaybackRates()
+
+
+
+// Helper Functions
+
+function formatTime(time){
+    time = Math.round(time);
+
+    var minutes = Math.floor(time / 60),
+        seconds = time - minutes * 60;
+
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return minutes + ":" + seconds;
+}
+
+
+$('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+});
+// Inject YouTube API script
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+</script>
+
+</body>
+</html>
