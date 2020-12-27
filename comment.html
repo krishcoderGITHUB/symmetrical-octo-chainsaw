@@ -1,11 +1,15 @@
 <style type="text/css">
 
+
+
+
 .container{
   max-width:1190px;
   margin-left:auto;
   margin-right:auto;
 border-radius:20px;
- Padding:0.6em;
+  padding:0.2em;
+
 }
 
 ul{
@@ -22,12 +26,12 @@ ul{
 }
 
 .wrapper{
-  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+
 border-radius:100px;
 }
 
 .wrapper > *{
-  Padding:0.4em;
+  padding: 0.4em;
   height:auto;
 }
 .company-inf{
@@ -245,14 +249,14 @@ Krish Coder.</p>
 $(function() {
   //To add comments
   var ref = new Firebase("https://heera-chats.firebaseio.com/"),
-    queryString = window.location.search;
-    path ="blogger/comments/"+ queryString ;
-    postRef = ref.child(path);
+
+
+    postRef = ref.child('blogger/comments/'+ window.location.href);
     postRef.on("child_added", function(snapshot) {
       var newPost = snapshot.val();
       $(".comments").prepend('<div class="comment">' +
         '<h4>' + escapeHtml(newPost.name) + '</h4>' +
-        '<div class="profile-image"><img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro;"/></div>' +
+        '<div class="profile-image"><img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro"/></div>' +
         '<span class="date">' + moment(newPost.postedAt).fromNow() + '</span><p>' + escapeHtml(newPost.message)  + '</p></div>');
     });
     
@@ -266,7 +270,7 @@ $(function() {
     
 //To add comments to reviewcomments child in firebase
     b = ref.child(path);
-//<img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro;"/>
+//<img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro"/>
     
     
     $("#contactForm").submit(function() {
