@@ -251,7 +251,7 @@ $(function() {
   var ref = new Firebase("https://heera-chats.firebaseio.com/"),
 
 
-    postRef = ref.child('blogger/comments/one');
+    postRef = ref.child("blogger/comments/one");
     postRef.on("child_added", function(snapshot) {
       var newPost = snapshot.val();
       $(".comments").prepend('<div class="comment">' +
