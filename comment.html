@@ -8,7 +8,7 @@
   margin-left:auto;
   margin-right:auto;
 border-radius:20px;
-  padding:0.5em; margin-left:0.5em; margin-right:0.5rem;
+  padding:0.5em;
 }
 
 ul{
@@ -255,7 +255,7 @@ $(function() {
       var newPost = snapshot.val();
       $(".comments").prepend('<div class="comment">' +
         '<h4>' + escapeHtml(newPost.name) + '</h4>' +
-        '<div class="profile-image"><img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro"/></div>' +
+        '<div class="profile-image"><img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro;"/></div>' +
         '<span class="date">' + moment(newPost.postedAt).fromNow() + '</span><p>' + escapeHtml(newPost.message)  + '</p></div>');
     });
     
@@ -269,7 +269,7 @@ $(function() {
     
 //To add comments to reviewcomments child in firebase
     b = ref.child(path);
-//<img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro"/>
+//<img src="http://www.gravatar.com/avatar/' + escapeHtml(newPost.md5Email) + '?s=100&d=retro;"/>
     
     
     $("#contactForm").submit(function() {
