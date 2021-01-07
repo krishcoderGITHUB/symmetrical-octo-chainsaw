@@ -141,9 +141,11 @@ transform:translate(-1px);
 <script type="text/javascript">
 $(function() {
   //To add comments
-  var ref = new Firebase("https://heera-chats.firebaseio.com/"),
-
-    path ="blogger/comments/hello";
+  var ref = new Firebase("https://advance-app-1-default-rtdb.firebaseio.com/"),
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const l = urlParams.get('title')
+    path ="blogger/"+l;
     postRef = ref.child(path);
     postRef.on("child_added", function(snapshot) {      
       
